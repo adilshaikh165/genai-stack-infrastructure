@@ -1,0 +1,24 @@
+---
+- name: Deploy Weaviate using Docker Compose
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: Ensure destination directory exists
+      ansible.builtin.file:
+        path: ~/weaviate
+        state: directory
+      tags:
+        - weaviate
+
+    - name: Download Docker Compose file
+      get_url:
+        url: "https://raw.githubusercontent.com/adil-aiplanet/genai-stack-infrastructure/main/ansible-playbook/weaviate/docker-compose-core.yml?token=GHSAT0AAAAAACIBOIACXDKOBLAUNIE6TQ44ZIW3WGQ"
+        dest: ~/prefect/docker-compose.yml
+      tags:
+        - prefect
+
+    - name: Start Weaviate
+      command: docker-compose -f ~/weaviate/docker-compose.yml up -d
+      tags:
+        - weaviate

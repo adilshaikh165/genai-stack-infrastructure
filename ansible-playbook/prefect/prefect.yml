@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: Ensure destination directory exists
+      ansible.builtin.file:
+        path: ~/prefect
+        state: directory
+      tags:
+        - prefect
+
+    - name: Download Docker Compose file
+      get_url:
+        url: "https://raw.githubusercontent.com/adil-aiplanet/genai-stack-infrastructure/main/ansible-playbook/prefect/docker-compose%20(3).yml?token=GHSAT0AAAAAACIBOIACS4TDRNIEUPRILVJIZIZCYKA"
+        dest: ~/prefect/docker-compose.yml
+      tags:
+        - prefect
+
+    - name: Start Prefect Services with Docker Compose
+      command: docker-compose up -d
+      args:
+        chdir: ~/prefect
+      tags:
+        - prefect
+

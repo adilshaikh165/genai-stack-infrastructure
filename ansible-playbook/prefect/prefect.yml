@@ -12,7 +12,7 @@
 
     - name: Download Docker Compose file
       get_url:
-        url: "https://raw.githubusercontent.com/adil-aiplanet/genai-stack-infrastructure/main/ansible-playbook/prefect/docker-compose%20(3).yml?token=GHSAT0AAAAAACIBOIACS4TDRNIEUPRILVJIZIZCYKA"
+        url: "https://raw.githubusercontent.com/aiplanethub/genai-stack-infrastructure/main/ansible-playbook/prefect/docker-compose.yml?token=GHSAT0AAAAAACIBOIACLQH5KADC2ODDNCPOZI5RJRQ"
         dest: ~/prefect/docker-compose.yml
       tags:
         - prefect

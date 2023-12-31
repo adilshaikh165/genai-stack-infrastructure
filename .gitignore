@@ -1,5 +1,5 @@
+terraform-scripts/*.json
 
-terraform-scripts/ai-marketplace-385708-4eee68e34d16.json
 # Local .terraform directories
 **/.terraform/*
 

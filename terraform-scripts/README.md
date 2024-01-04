@@ -42,7 +42,7 @@ Clone this repository to your local machine:
 
 * Preview the changes that Terraform will make:
 ```bash
-   terraform plan -var-file=dev.tfvars 
+   terraform plan
 ```
 
 * Deploy the VMs and associated resources:
